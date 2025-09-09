@@ -113,12 +113,14 @@ python main.py
 ## 📱 Live Demo
 
 ### 🖥 System in Action
-![CrowdWisdomTrading AI System Running](<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/90c8eb9c-68ea-47cb-bbb6-c3e080937574" />
-)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/90c8eb9c-68ea-47cb-bbb6-c3e080937574" />
+
 *Multi-agent CrewAI pipeline processing financial Twitter data in real-time*
 
 ### 📊 Business Presentation
-**[📋 AI-Powered Financial Intelligence Platform]([AI-Powered-Financial-Intelligence-Platform.pdf](https://drive.google.com/file/d/1rUTBTN9_zEQwbDnzphwc3bleK6BpMSnp/view?usp=sharing))**
+(https://drive.google.com/file/d/1rUTBTN9_zEQwbDnzphwc3bleK6BpMSnp/view?usp=sharing)
+
+
 *Complete technical overview and business case presentation*
 
 ### 🎯 Expected Output
