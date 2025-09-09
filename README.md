@@ -11,7 +11,7 @@
 
 *A sophisticated AI-powered backend system that analyzes financial sentiment across X (Twitter) creators using multi-agent orchestration, delivering structured insights, market signals, and automated reports for strategic trading decisions.*
 
-[🎥 View Demo](#-demo) • [📊 Live Results](#-sample-output) • [🛠 Quick Start](#-installation) • [📋 Documentation](#-project-structure)
+[🛠 Quick Start](#-quick-installation) • [📊 Live Demo](#-live-demo) • [📋 Documentation](#-project-structure) • [🎯 Features](#-core-features)
 
 </div>
 
@@ -91,7 +91,7 @@ cd crowdwisdom-ai-agent
 
 ### 2️⃣ Install Dependencies
 ```bash
-pip install -r requirements.txt
+pip install crewai litellm reportlab numpy pydantic
 ```
 
 ### 3️⃣ Configure API Key
@@ -110,15 +110,16 @@ python main.py
 
 ---
 
-## 🎥 Demo
+## 📱 Live Demo
 
-### 🖥 Live System in Action
+### 🖥 System in Action
+![CrowdWisdomTrading AI System Running](<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/90c8eb9c-68ea-47cb-bbb6-c3e080937574" />
+)
+*Multi-agent CrewAI pipeline processing financial Twitter data in real-time*
 
-![System Running](demo/system-running.png)
-*Real-time execution showing multi-agent processing pipeline*
-
-### 📱 Quick Start Video
-[![Demo Video](https://img.shields.io/badge/▶️-Watch%20Demo-red.svg?style=for-the-badge)](demo/crowdwisdom-demo.mp4)
+### 📊 Business Presentation
+**[📋 AI-Powered Financial Intelligence Platform]([AI-Powered-Financial-Intelligence-Platform.pdf](https://drive.google.com/file/d/1rUTBTN9_zEQwbDnzphwc3bleK6BpMSnp/view?usp=sharing))**
+*Complete technical overview and business case presentation*
 
 ### 🎯 Expected Output
 ```
@@ -138,16 +139,9 @@ python main.py
 
 ---
 
-## 📊 Sample Output
+## 📊 Sample Results
 
-### 📄 Generated Reports
-
-| File | Description | Preview |
-|------|-------------|---------|
-| `TraderA_report.pdf` | Executive summary with charts | [📄 View Sample](output/sample_report.pdf) |
-| `TraderA_data.json` | Complete processed data | [📋 View JSON](output/sample_data.json) |
-
-### 📈 Analytics Dashboard
+### 📈 Analytics Output
 ```json
 {
   "creator_handle": "@TraderA",
@@ -160,44 +154,48 @@ python main.py
 }
 ```
 
+### 📄 Generated Files
+- **PDF Report:** `TraderA_report.pdf` - Executive summary with statistics
+- **JSON Data:** `TraderA_data.json` - Complete processed tweet data
+- **Analytics:** Summary metrics for decision making
+
 ---
 
 ## 📋 Project Structure
 
 ```
 crowdwisdom-ai-agent/
-├── 📁 demo/
-│   ├── 🎥 crowdwisdom-demo.mp4
-│   ├── 🖼 system-running.png
-│   └── 📊 AI-Powered-Financial-Intelligence-Platform.pdf
-├── 📁 output/
-│   ├── 📄 sample_report.pdf
-│   └── 📊 sample_data.json
-├── 📁 src/
-│   ├── 🐍 main.py              # Main execution pipeline
-│   ├── 🛠 tools.py             # Custom CrewAI tools
-│   ├── 🤖 agents.py            # Agent definitions
-│   └── 📝 schemas.py           # Pydantic models
-├── 📋 requirements.txt         # Dependencies
-├── 📖 README.md               # This file
-└── 📜 LICENSE                 # MIT License
+├── 🐍 main.py                      # Main execution pipeline
+├── 🛠 tools.py                     # Custom CrewAI tools
+├── 🤖 agents.py                    # Agent definitions
+├── 📝 schemas.py                   # Pydantic models
+├── 📋 requirements.txt             # Dependencies
+├── 📖 README.md                    # This documentation
+├── 📊 AI-Powered-Financial-Intelligence-Platform.pdf
+└── 🖼 demo-screenshot.png          # Live system demo
 ```
 
 ---
 
 ## 🏗 System Architecture
 
-```mermaid
-graph TD
-    A[🔍 Data Collector Agent] --> B[📊 Sentiment Analyzer Agent]
-    B --> C[💰 Ticker Extractor Agent]
-    C --> D[📄 Report Generator Agent]
-    
-    A --> E[(📦 JSON Data)]
-    B --> F[(📈 Sentiment Scores)]
-    C --> G[(💲 Trading Signals)]
-    D --> H[(📄 PDF Reports)]
 ```
+🔍 Data Collector Agent
+    ↓
+📊 Sentiment Analyzer Agent
+    ↓
+💰 Ticker Extractor Agent
+    ↓
+📄 Report Generator Agent
+    ↓
+📊 PDF Reports + JSON Data
+```
+
+### Agent Workflow
+1. **Data Collection:** Scrapes tweets from financial influencers
+2. **Sentiment Analysis:** AI-powered emotion and tone detection
+3. **Ticker Extraction:** Identifies stock symbols and market direction
+4. **Report Generation:** Creates professional PDF and JSON outputs
 
 ---
 
@@ -205,8 +203,8 @@ graph TD
 
 <div align="center">
 
-| Metric | Improvement | Impact |
-|--------|-------------|---------|
+| Metric | Improvement | Description |
+|--------|-------------|-------------|
 | **Decision Speed** | 40% faster | Reduced time from signal to action |
 | **Accuracy** | 25% improvement | AI-driven sentiment analysis |
 | **Cost Reduction** | 60% savings | Automated research processes |
@@ -218,77 +216,46 @@ graph TD
 ## 🎯 Use Cases
 
 ### 🏢 **Trading Firms**
-- Real-time sentiment monitoring
-- Automated signal generation
-- Risk assessment integration
+- Real-time sentiment monitoring of key market influencers
+- Automated signal generation for trading strategies
+- Risk assessment integration with existing systems
 
 ### 📊 **Investment Research**
-- Market mood analysis
-- Influencer impact tracking
-- Trend identification
+- Market mood analysis across social platforms
+- Influencer impact tracking and correlation studies
+- Trend identification and early signal detection
 
 ### 💼 **Portfolio Management**
-- Sentiment-based strategies
-- Risk mitigation
-- Performance optimization
+- Sentiment-based investment strategies
+- Risk mitigation through social signal analysis
+- Performance optimization using crowd wisdom
 
 ---
 
 ## 🚀 Future Enhancements
 
-- [ ] **Real-time Streaming** - Live data processing
-- [ ] **Multi-platform Integration** - YouTube, Reddit, Discord
-- [ ] **Advanced RAG** - Knowledge base integration
-- [ ] **Multi-modal Analysis** - Image and video processing
+- [ ] **Real-time Streaming** - Live data processing and alerts
+- [ ] **Multi-platform Integration** - YouTube, Reddit, Discord analysis
+- [ ] **Advanced RAG** - Knowledge base and historical data integration
+- [ ] **Multi-modal Analysis** - Image and video content processing
 - [ ] **API Endpoints** - RESTful service architecture
-- [ ] **Dashboard UI** - Web-based monitoring interface
+- [ ] **Dashboard UI** - Web-based monitoring and control interface
 
 ---
 
-## 📸 Screenshots & Media
+## 🏆 Technical Excellence
 
-### 📊 Presentation Materials
-- **[📋 Business Presentation](demo/AI-Powered-Financial-Intelligence-Platform.pdf)** - Executive overview and technical deep-dive
-- **[🎥 Demo Video](demo/crowdwisdom-demo.mp4)** - Live system demonstration
-- **[📈 Sample Reports](output/)** - Generated PDF and JSON examples
+### ✨ **Innovation Highlights**
+- **CrewAI Multi-Agent Orchestration** - Advanced AI workflow management
+- **Financial Domain Expertise** - Specialized trading terminology understanding
+- **Robust Error Handling** - Comprehensive fallback mechanisms
+- **Production-Ready Architecture** - Scalable and maintainable codebase
 
----
-
-## 🏆 Recognition & Awards
-
-<div align="center">
-
-🥇 **CrowdWisdomTrading Internship Assessment**  
-*Advanced AI Agent Implementation*
-
-⭐ **Technical Excellence**  
-*CrewAI Multi-Agent Orchestration*
-
-🚀 **Innovation Award**  
-*Financial Intelligence Automation*
-
-</div>
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Development Setup
-```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-# or
-venv\Scripts\activate     # Windows
-
-# Install dev dependencies
-pip install -r requirements-dev.txt
-
-# Run tests
-pytest tests/
-```
+### 🔧 **Code Quality**
+- **Modular Design** - Separated concerns and clear responsibilities
+- **Type Safety** - Pydantic schemas for data validation
+- **Documentation** - Comprehensive inline comments and docstrings
+- **Best Practices** - Following CrewAI and Python conventions
 
 ---
 
@@ -298,24 +265,24 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## 📞 Contact & Support
+## 📞 Contact & Assessment
 
 <div align="center">
 
-**Built for CrowdWisdomTrading Internship Assessment**
+**🎯 Built for CrowdWisdomTrading Internship Assessment**
 
 👨‍💻 **Developer:** Pavan Kumar  
-📧 **Contact:** [your.email@domain.com](mailto:your.email@domain.com)  
-💼 **LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
+📧 **Email:** [your.email@domain.com](mailto:pawankalyanvarikuppala2276@gmail.com)  
+💼 **LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/varikuppalapawankalyan)  
 🐙 **GitHub:** [github.com/pavan5116](https://github.com/pavan5116)
 
 ---
 
-**Questions about the assessment?**  
-📧 Contact: [gilad@crowdwisdomtrading.com](mailto:gilad@crowdwisdomtrading.com)
+**Assessment Submission Contact:**  
+📧 Gilad, CEO CrowdWisdomTrading: [gilad@crowdwisdomtrading.com](mailto:gilad@crowdwisdomtrading.com)
 
 ---
 
-⭐ **If you found this project helpful, please give it a star!** ⭐
+⭐ **Ready to transform social sentiment into trading intelligence!** ⭐
 
 </div>
