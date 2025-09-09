@@ -271,7 +271,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **🎯 Built for CrowdWisdomTrading Internship Assessment**
 
-👨‍💻 **Developer:** Pavan Kumar  
+👨‍💻 **Developer:** Pavan Kalyan  
 📧 **Email:** [your.email@domain.com](mailto:pawankalyanvarikuppala2276@gmail.com)  
 💼 **LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/varikuppalapawankalyan)  
 🐙 **GitHub:** [github.com/pavan5116](https://github.com/pavan5116)
