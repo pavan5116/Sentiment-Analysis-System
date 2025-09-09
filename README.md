@@ -1,39 +1,41 @@
-CrowdWisdomTrading AI Agent
-![Python](https://img.shields.io/badge/PythonILL AI-driven sentiment analysis and reporting on financial social media, built with CrewAI, LiteLLM, and the latest multi-agent orchestration workflows.
+CrowdWisdomTrading AI Agent Sentiment Analyzer
+![Python](https://img.shields.io/badge/Pythonwork sentiment across X (Twitter) creators. Built using Python, CrewAI, and LiteLLM, this project delivers structured sentiment insights, market signal extraction, and report automation for 10+ financial influencers.
 
 🤖 Live Demo
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/66a1b3dc-2e04-4536-8876-224956c4e771" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1528a792-e0b5-4d2c-802b-b1cb3d69e3bb" />
 
 
 🚀 Core Functionality
-Automated Data Collection: Scrape 200+ tweets each from 10 X (Twitter) creators
+Multi-Agent Pipeline: Modular CrewAI agents handle scraping, sentiment analysis, ticker extraction, and reporting.
 
-Sentiment Analysis: Assigns sentiment scores (-1 = bearish, +1 = bullish), detects subjects, and market mood
+Financial Market Focus: Extracts signals specifically from finance Twitter/X users (200+ tweets/creator).
 
-Ticker Extraction: Identifies stock symbols in text with AI and regex backup
+AI-Powered Sentiment: Analyzes and scores sentiment (bullish, bearish, neutral) on every tweet.
 
-Comprehensive Reporting: Generates both PDF and machine-readable JSON outputs
+Ticker Extraction: Finds and classifies stock symbols and market direction per mention.
 
-Agentic Pipeline: Extensible multi-agent flow for robust AI automation via CrewAI
+Automated Reporting: Generates clean PDF and JSON summaries for decision support.
 
-🛠️ Technology Stack
-Orchestration Framework: CrewAI (latest)
+Guardrails Included: Resilient error handling and validation at every step.
 
-LLM Provider: LiteLLM & Gemini 2.0 Flash
+🛠 Technology Stack
+Framework: CrewAI (latest)
 
-PDF Generation: ReportLab
+LLM Orchestration: LiteLLM + Gemini 2.0 Flash
+
+Report Generation: ReportLab
 
 Schema Validation: Pydantic
 
-Analytics: numpy, regex
+Data Source: BrightData MCP, customizable for real/production use
 
-Python Version: 3.10+
-
-🏁 Getting Started
+⚡ Getting Started
 Prerequisites
 Python 3.10 or newer
 
-(Optional) Access to Gemini LLM (API key)
+API key for Gemini (set as environment variable)
+
+CrewAI, LiteLLM, ReportLab, and dependencies
 
 1. Clone the Repository
 bash
@@ -43,38 +45,50 @@ cd crowdwisdom-ai-agent
 bash
 pip install crewai litellm reportlab numpy pydantic
 3. Configure Your API Key
-Set your Gemini API key as an environment variable.
-On macOS/Linux:
+Linux/macOS:
 
 bash
 export GEMINI_API_KEY="YOUR_API_KEY_HERE"
-On Windows:
+Windows:
 
 powershell
 $env:GEMINI_API_KEY="YOUR_API_KEY_HERE"
-Do not hard-code your keys into the script.
+(Never commit secrets to code!)
 
-4. Run the Application
-Execute the main pipeline script:
-
+4. Run the AI Pipeline
 bash
 python main.py
-The system will loop through the X creators, collect tweet data, analyze sentiment, extract financial intelligence, and generate reports.
+PDF and JSON reports will be generated for each creator in the current directory.
 
-📊 Output
-PDF Reports: e.g., TraderA_report.pdf for human analysis and presentation
-
-JSON Files: e.g., TraderA_data.json for data science and further processing
-
-📁 Project Structure
+📦 Project Structure
 text
-├── main.py                  # Main execution script
-├── requirements.txt         # Dependency list
-└── README.md                # Project documentation
-📄 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+├── main.py                # Main workflow launcher
+├── tools.py               # Custom CrewAI tools (collect, analyze, extract, report)
+├── agents.py              # Multi-agent definitions and configuration
+├── requirements.txt       # Dependency file
+├── output/                # Generated PDF and JSON reports
+└── README.md              # Documentation
+📊 Sample Output
+output/@TraderA_report.pdf
+
+output/@TraderA_data.json
+
+Each file contains sentiment statistics, ticker signals, and market direction for each influencer.
+
+📈 Features & Benefits
+Real-time, structured market sentiment from X (Twitter)
+
+Extensible with YouTube, images, and true RAG flows
+
+Robust, production-ready code with clear modularity
+
+Supports reporting and analysis for trading, research, and risk management
+
+📋 License
+Licensed under the MIT License — see the LICENSE file for details.
 
 🤝 About
-Created by the CrowdWisdomTrading team as part of the AI Agent Internship Assessment.
+Designed and engineered for the CrowdWisdomTrading AI Agent Internship Assessment.
+For any questions or feedback, contact gilad@crowdwisdomtrading.com.
 
-🌟For any questions, please contact Gilad, CEO: gilad@crowdwisdomtrading.com
+Happy trading and analyzing!
