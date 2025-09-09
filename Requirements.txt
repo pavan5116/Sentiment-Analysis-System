@@ -1,0 +1,6 @@
+crewai
+litellm
+reportlab
+pydantic
+numpy
+request
