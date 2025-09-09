@@ -8,9 +8,10 @@ import numpy as np
 import re
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-
+import dotenv
 # Set environment variable for API key
-os.environ["GEMINI_API_KEY"] = "AIzaSyD4D82n6QJqllwif14MojSQgEm1KnHa33s"
+API=os.getdotenv
+os.environ["GEMINI_API_KEY"] = API
 
 # Mock TwitterScraper if brightdata_mcp is unavailable
 def get_user_tweets(handle, limit):
@@ -238,3 +239,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
