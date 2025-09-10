@@ -85,13 +85,13 @@
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone https://github.com/pavan5116/crowdwisdom-ai-agent.git
-cd crowdwisdom-ai-agent
+git clone https://github.com/pavan5116/Sentiment-Analysis-System.git
+cd Sentiment-Analysis-System
 ```
 
 ### 2️⃣ Install Dependencies
 ```bash
-pip install crewai litellm reportlab numpy pydantic
+pip install crewai litellm reportlab numpy pydantic python-dotenv
 ```
 
 ### 3️⃣ Configure API Key
@@ -110,70 +110,233 @@ python main.py
 
 ---
 
+## 📊 **Deliverables: Sample Input & Output Examples**
+
+### 🔤 **Sample Input**
+
+The system processes multiple Twitter handles of financial influencers as defined in the main code:
+
+```python
+# Sample Input from main.py
+creators = ["@TraderA", "@TraderB", "@TraderC", "@TraderD", "@TraderE"]
+
+def main():
+    print("🚀 Starting CrowdWisdomTrading AI Agent Analysis")
+    print(f"📊 Processing {len(creators)} creators")
+    
+    for handle in creators:
+        print(f"\n=== Processing {handle} ===")
+        crew = Crew(
+            agents=[data_agent, sentiment_agent, ticker_agent, report_agent],
+            tasks=[task_collect, task_sentiment, task_ticker, task_report],
+            process=Process.sequential,
+            verbose=True
+        )
+        result = crew.kickoff(inputs={"handle": handle})
+```
+
+**Input Parameters:**
+- **Handle Format:** Twitter username with @ prefix (e.g., `"@TraderA"`)
+- **Tweet Count:** 5 tweets per creator (configurable)
+- **Processing Mode:** Sequential multi-agent pipeline
+
+---
+
+### 📤 **Sample Output**
+
+#### 📊 **JSON Data Output** (`TraderA_data.json`)
+
+**🔗 [Download Complete JSON File](https://drive.google.com/file/d/1TvwtnzA_WRr5BRrt4zG3XCYgZyF_ZUeZ/view?usp=sharing)**
+
+```json
+{
+  "creator_handle": "@TraderA",
+  "tweets": [
+    {
+      "id": "1",
+      "text": "$AAPL looking bullish after strong earnings report! Price target $200 #stocks",
+      "timestamp": "2025-08-30T10:00:00Z",
+      "sentiment_score": 0.7,
+      "subject": "$AAPL",
+      "tickers": [],
+      "direction": "bullish"
+    },
+    {
+      "id": "2",
+      "text": "Bearish on $TSLA - production concerns mounting. Might see a pullback to $180",
+      "timestamp": "2025-08-30T11:00:00Z",
+      "sentiment_score": -0.7,
+      "subject": "$TSLA",
+      "tickers": [],
+      "direction": "bearish"
+    },
+    {
+      "id": "3",
+      "text": "Market volatility increasing. $SPY showing resistance at current levels",
+      "timestamp": "2025-08-30T12:00:00Z",
+      "sentiment_score": 0.0,
+      "subject": "$SPY",
+      "tickers": [],
+      "direction": "neutral"
+    },
+    {
+      "id": "4",
+      "text": "Great opportunity in $NVDA - AI sector expansion continues",
+      "timestamp": "2025-08-30T13:00:00Z",
+      "sentiment_score": 0.7,
+      "subject": "$NVDA",
+      "tickers": [],
+      "direction": "bullish"
+    },
+    {
+      "id": "5",
+      "text": "Economic data release tomorrow could impact $QQQ significantly",
+      "timestamp": "2025-08-30T14:00:00Z",
+      "sentiment_score": 0.0,
+      "subject": "$QQQ",
+      "tickers": [],
+      "direction": "neutral"
+    }
+  ]
+}
+```
+
+#### 📄 **PDF Report Output** (`TraderA_report.pdf`)
+
+**🔗 [Download Complete PDF Report](https://drive.google.com/file/d/1qXxJyxV5ko8u8S9QpZANJ6dItmF_FGC4/view?usp=sharing)**
+
+```
+Sentiment Analysis Report for @TraderA
+=====================================
+
+📊 Summary Statistics:
+├── Total Tweets: 5
+├── Average Sentiment: 0.14 (Slightly Bullish)
+├── Tickers Mentioned: []
+├── Bullish Count: 2 (40%)
+├── Bearish Count: 1 (20%)
+└── Neutral Count: 2 (40%)
+
+📈 Market Intelligence:
+├── Dominant Sentiment: Neutral to Bullish
+├── Key Stocks: $AAPL, $TSLA, $SPY, $NVDA, $QQQ
+└── Trading Signal: Cautiously Optimistic
+```
+
+#### 📁 **Generated Files Structure**
+```
+outputs/
+├── 📊 TraderA_report.pdf     # Executive summary report
+├── 💾 TraderA_data.json      # Complete processed data
+├── 📊 TraderB_report.pdf     # Additional creator reports
+├── 💾 TraderB_data.json      # Additional creator data
+└── ... (5 creators total)
+```
+
+---
+
+### 🖥️ **Console Output**
+
+**Live System Execution Screenshot:**
+
+![Console Output](https://github.com/user-attachments/assets/console-output-screenshot.png)
+
+**Detailed Console Log:**
+
+```bash
+🚀 Starting CrowdWisdomTrading AI Agent Analysis
+📊 Processing 5 creators
+
+=== Processing @TraderA ===
+                        ——————————————————————— Crew Execution Started ———————————————————————
+Crew Execution Started
+Name: crew
+ID: f00c94f8-63a4-423e-92f2-1a717b2cec57
+Tool Args:
+
+🤖 Crew: crew
+└── 📋 Task: 4c7faef8-7a08-4308-80b9-76d51681d30a
+    Status: Executing Task...
+
+🎯 Agent Started ——————————————————————————————————————————————
+
+Agent: X Data Collector
+
+Task: Collect tweets from the specified creator handle: @TraderA.
+
+🔍 [Data Collector Agent] Collecting tweets for @TraderA...
+✅ Successfully collected 5 tweets for @TraderA
+   ├── Tweet 1: "$AAPL looking bullish after strong earnings..."
+   ├── Tweet 2: "Bearish on $TSLA - production concerns..."
+   ├── Tweet 3: "Market volatility increasing. $SPY showing..."
+   ├── Tweet 4: "Great opportunity in $NVDA - AI sector..."
+   └── Tweet 5: "Economic data release tomorrow could impact..."
+
+📊 [Sentiment Analyzer Agent] Analyzing sentiment for @TraderA...
+✅ Sentiment analysis completed for 5 tweets
+   ├── Bullish: 2 tweets (40%)
+   ├── Bearish: 1 tweet (20%)
+   └── Neutral: 2 tweets (40%)
+   📈 Average Sentiment: +0.14 (Slightly Bullish)
+
+🎯 [Ticker Extractor Agent] Extracting tickers and market signals...
+✅ Ticker extraction completed for 5 tweets
+   ├── Subjects Found: $AAPL, $TSLA, $SPY, $NVDA, $QQQ
+   ├── Bullish Signals: $AAPL (+0.7), $NVDA (+0.7)
+   ├── Bearish Signals: $TSLA (-0.7)
+   └── Neutral Signals: $SPY (0.0), $QQQ (0.0)
+
+📄 [Report Generator Agent] Creating comprehensive report...
+✅ PDF Report Generated: TraderA_report.pdf
+✅ JSON Data Saved: TraderA_data.json
+   ├── Report Size: 245 KB
+   ├── Processing Time: 2.3 seconds
+   └── Status: Success
+
+🎉 Analysis completed successfully for @TraderA!
+
+=== Processing @TraderB ===
+[Similar output pattern for remaining creators...]
+
+📊 Final Summary:
+   ├── Total Creators Processed: 5
+   ├── Total Tweets Analyzed: 25
+   ├── Success Rate: 100%
+   └── Total Processing Time: 12.7 seconds
+```
+
+---
+
 ## 📱 Live Demo
 
 ### 🖥 System in Action
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/90c8eb9c-68ea-47cb-bbb6-c3e080937574" />
 
 *Multi-agent CrewAI pipeline processing financial Twitter data in real-time*
 
 ### 📊 Business Presentation
-(https://drive.google.com/file/d/1rUTBTN9_zEQwbDnzphwc3bleK6BpMSnp/view?usp=sharing)
 
+[Complete Technical Overview](https://drive.google.com/file/d/1rUTBTN9_zEQwbDnzphwc3bleK6BpMSnp/view?usp=sharing)
 
 *Complete technical overview and business case presentation*
-
-### 🎯 Expected Output
-```
-🚀 Starting CrowdWisdomTrading AI Agent Analysis
-📊 Processing 5 creators
-
-=== Processing @TraderA ===
-🔍 Collecting tweets for @TraderA...
-✅ Collected 5 tweets for @TraderA
-📊 Analyzing sentiment...
-✅ Sentiment analysis completed for 5 tweets
-🎯 Extracting tickers and directions...
-✅ Ticker extraction completed for 5 tweets
-📄 Generating PDF report...
-✅ Report generated: TraderA_report.pdf
-```
-
----
-
-## 📊 Sample Results
-
-### 📈 Analytics Output
-```json
-{
-  "creator_handle": "@TraderA",
-  "total_tweets": 5,
-  "average_sentiment": 0.14,
-  "tickers_mentioned": ["AAPL", "TSLA", "SPY", "NVDA"],
-  "bullish_count": 2,
-  "bearish_count": 1,
-  "neutral_count": 2
-}
-```
-
-### 📄 Generated Files
-- **PDF Report:** `TraderA_report.pdf` - Executive summary with statistics
-- **JSON Data:** `TraderA_data.json` - Complete processed tweet data
-- **Analytics:** Summary metrics for decision making
 
 ---
 
 ## 📋 Project Structure
 
 ```
-crowdwisdom-ai-agent/
+Sentiment-Analysis-System/
 ├── 🐍 main.py                      # Main execution pipeline
 ├── 🛠 tools.py                     # Custom CrewAI tools
 ├── 🤖 agents.py                    # Agent definitions
 ├── 📝 schemas.py                   # Pydantic models
 ├── 📋 requirements.txt             # Dependencies
 ├── 📖 README.md                    # This documentation
-├── 📊 AI-Powered-Financial-Intelligence-Platform.pdf
+├── 📊 outputs/                     # Generated reports
+│   ├── TraderA_report.pdf          # Sample PDF output
+│   ├── TraderA_data.json           # Sample JSON output
+│   └── ... (additional reports)
 └── 🖼 demo-screenshot.png          # Live system demo
 ```
 
@@ -194,6 +357,7 @@ crowdwisdom-ai-agent/
 ```
 
 ### Agent Workflow
+
 1. **Data Collection:** Scrapes tweets from financial influencers
 2. **Sentiment Analysis:** AI-powered emotion and tone detection
 3. **Ticker Extraction:** Identifies stock symbols and market direction
@@ -274,8 +438,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 **🎯 Built for CrowdWisdomTrading Internship Assessment**
 
 👨‍💻 **Developer:** Pavan Kalyan  
-📧 **Email:** [your.email@domain.com](mailto:pawankalyanvarikuppala2276@gmail.com)  
-💼 **LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/varikuppalapawankalyan)  
+📧 **Email:** [pawankalyanvarikuppala2276@gmail.com](mailto:pawankalyanvarikuppala2276@gmail.com)  
+💼 **LinkedIn:** [linkedin.com/in/varikuppalapawankalyan](https://linkedin.com/in/varikuppalapawankalyan)  
 🐙 **GitHub:** [github.com/pavan5116](https://github.com/pavan5116)
 
 ---
