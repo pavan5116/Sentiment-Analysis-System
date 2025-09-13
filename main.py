@@ -1,4 +1,3 @@
-import os
 from crewai import Agent, Task, Crew, Process, LLM
 from crewai.tools import tool, BaseTool
 from typing import Type
@@ -8,9 +7,13 @@ import numpy as np
 import re
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-import dotenv
-# Set environment variable for API key
-API=os.getdotenv
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_KEY = os.getenv("GEMINI_API_KEY")
 os.environ["GEMINI_API_KEY"] = API
 
 # Mock TwitterScraper if brightdata_mcp is unavailable
@@ -239,4 +242,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
